@@ -6,6 +6,7 @@
 #include "BasePawn.h"
 #include "Tank.generated.h"
 
+
 /**
  * 
  */
@@ -16,7 +17,7 @@ class TOONTANKS_API ATank : public ABasePawn
 
 public:
 	ATank();
-
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 
 private:
@@ -25,6 +26,10 @@ private:
 
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	class UCameraComponent* Camera;
-	
+
+	UPROPERTY(EditAnywhere, Category = "MoveMents")
+	float Speed = 200.f;
+
+	void Move(float Value);
 
 };

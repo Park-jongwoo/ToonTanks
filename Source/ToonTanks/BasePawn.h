@@ -15,14 +15,7 @@ class TOONTANKS_API ABasePawn : public APawn
 public:
 	// Sets default values for this pawn's properties
 	ABasePawn();
-	UPROPERTY(VisibleAnywhere)
-	int32 VisibleAnywhereInt = 12;
-	
-	UPROPERTY(EditAnywhere)
-	int32 EditAnywhereInt = 12;
 
-	UPROPERTY(EditAnywhere)
-	int32 MYUPROPERTY = 54;
 	
 
 protected:
@@ -46,6 +39,6 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	
 
 };
