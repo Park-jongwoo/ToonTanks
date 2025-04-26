@@ -5,6 +5,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Math/Rotator.h"
 
 
 ATank::ATank()
@@ -26,13 +27,28 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 	// Bind the Move function to the input axis "MoveForward"
 	PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &ATank::Move);
+	PlayerInputComponent->BindAxis(TEXT("Turn"), this, &ATank::Turn);
+}
+
+void ATank::BeginPlay()
+{
+	Super::BeginPlay();
+	
+	PlayerControllerRef = Cast<APlayerController> (GetController());
+
 }
 
 void ATank::Move(float Value)
 {
 	FVector DeltaLocation = FVector::ZeroVector;
-	double Deltatime = UGameplayStatics::GetWorldDeltaSeconds(this);
+	DeltaLocation.X = Value * UGameplayStatics::GetWorldDeltaSeconds(this) * Speed;
+	AddActorLocalOffset(DeltaLocation, true);
+}
 
-	DeltaLocation.X = Value * Deltatime * Speed;
-	AddActorLocalOffset(DeltaLocation);
+void ATank::Turn(float Value)
+{
+	FRotator DeltaRotation = FRotator::ZeroRotator;
+	DeltaRotation.Yaw = Value * UGameplayStatics::GetWorldDeltaSeconds(this) * TurnRate;
+	AddActorLocalRotation(DeltaRotation, true);
+
 }
