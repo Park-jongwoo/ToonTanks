@@ -1,16 +1,17 @@
 {
-	"FileVersion": 3,
-	"EngineAssociation": "5.5",
-	"Category": "",
-	"Description": "",
-	"Modules": [
-		{
-			"Name": "ToonTanks",
-			"Type": "Runtime",
-			"LoadingPhase": "Default",
-			"AdditionalDependencies": [
-				"Engine"
-			]
-		}
-	]
+  "FileVersion": 3,
+  "EngineAssociation": "5.5",
+  "Category": "",
+  "Description": "",
+  "Modules": [
+    {
+      "Name": "ToonTanks",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ],
+  "TargetPlatforms": [],
+  "AdditionalRootDirectories": [],
+  "AdditionalPluginDirectories": [],
+  "EpicSampleNameHash": ""
 }
