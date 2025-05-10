@@ -5,6 +5,7 @@
 #include "Components/CapsuleComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "DrawDebugHelpers.h"
 
 // Sets default values
 ABasePawn::ABasePawn()
@@ -39,4 +40,15 @@ void ABasePawn::RotateTurret(FVector LookAtTarget)
 			15.f));
 }
 
+void ABasePawn::Fire()
+{
+	FVector ProjectileSpawnPointLocation = ProjectileSpawnPoint->GetComponentLocation();
+	DrawDebugSphere(GetWorld(), 
+		ProjectileSpawnPointLocation, 
+		20.f, 
+		12, 
+		FColor::Red, 
+		false, 
+		3.f);
+}
 
