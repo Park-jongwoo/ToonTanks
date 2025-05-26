@@ -27,6 +27,12 @@ ABasePawn::ABasePawn()
 
 }
 
+void ABasePawn::HandleDestruction()
+{
+	// Todo: Add effects, sound, etc.
+
+}
+
 void ABasePawn::RotateTurret(FVector LookAtTarget)
 {
 	FVector ToTarget = LookAtTarget - TurretMesh->GetComponentLocation();
@@ -52,4 +58,5 @@ void ABasePawn::Fire()
 	Projectile->SetOwner(this);
 
 }
+
 
