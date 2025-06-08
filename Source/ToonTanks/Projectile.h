@@ -34,6 +34,8 @@ private:
 	UPROPERTY(EditAnywhere)
 	float Damage = 50.f;
 
+	UPROPERTY(EditAnywhere, Category = "Effects")
+	class UParticleSystem* HitParticle;
 
 public:	
 	// Called every frame
