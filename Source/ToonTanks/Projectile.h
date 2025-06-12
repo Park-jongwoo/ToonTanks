@@ -37,6 +37,9 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Effects")
 	class UParticleSystem* HitParticle;
 
+	UPROPERTY(VisibleAnywhere, Category = "Effects")
+	class UParticleSystemComponent* TrailParticle;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
