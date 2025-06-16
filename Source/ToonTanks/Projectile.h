@@ -7,6 +7,8 @@
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Projectile.generated.h"
 
+class USoundBase;
+
 UCLASS()
 class TOONTANKS_API AProjectile : public AActor
 {
@@ -39,6 +41,12 @@ private:
 
 	UPROPERTY(VisibleAnywhere, Category = "Effects")
 	class UParticleSystemComponent* TrailParticle;
+
+	UPROPERTY(EditAnywhere, Category = "Effects")
+	USoundBase* LaunchSound;
+
+	UPROPERTY(EditAnywhere, Category = "Effects")
+	USoundBase* HitSound;
 
 public:	
 	// Called every frame
