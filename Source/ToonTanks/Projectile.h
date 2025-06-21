@@ -5,7 +5,9 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "GameFramework/ProjectileMovementComponent.h"
+#include "Camera/CameraShakeBase.h"
 #include "Projectile.generated.h"
+
 
 class USoundBase;
 
@@ -48,6 +50,8 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Effects")
 	USoundBase* HitSound;
 
+	UPROPERTY(EditAnywhere, Category = "Effects")
+	TSubclassOf<class UCameraShakeBase> HitCameraShakeClass;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
